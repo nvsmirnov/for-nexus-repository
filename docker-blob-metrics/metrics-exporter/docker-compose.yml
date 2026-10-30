@@ -1,0 +1,12 @@
+services:
+  exporter:
+    image: nginx:stable
+    restart: unless-stopped
+    volumes:
+      - pvnexus:/usr/share/nginx/html:ro
+    ports:
+      - "${PORT:-9100}:80"
+
+volumes:
+  pvnexus:
+    external: true
